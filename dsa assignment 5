@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+#include<stdbool.h>
+#include<vector>
+
+#define NUM_VERTICES 6
+
+using namespace std;
+
+struct adjacency_list_node
+{
+    char node_name;
+    adjacency_list_node * next_node = NULL;
+};
+
+
+struct graph_node
+{
+    char node_name;
+    vector<graph_node*> ptr;
+};
+
+
+struct vertex_array_node
+{
+    char node_name;
+    adjacency_list_node* list_base_addr = NULL;
+    graph_node* node_addr = NULL;
+    vertex_array_node* next_node = NULL;    
+};
+
+adjacency_list_node* al_head = NULL;
+adjacency_list_node* al_tail = NULL;
+
+vertex_array_node* va_head = NULL;
+vertex_array_node* va_tail = NULL;
+vertex_array_node* temp_va_tail = NULL;
+
+void create_vertex_array(vertex_array_node* new_node)
+{
+    if(va_head == va_tail)
+    {
+     …
